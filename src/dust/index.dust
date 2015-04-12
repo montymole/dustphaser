@@ -1,0 +1,5 @@
+{>"layout"/}
+{<bodyContent}
+	<div id="phaser-game"></div>
+	(c) 2015 jlöf
+{/bodyContent}

@@ -1,0 +1,13 @@
+{
+    "PORT": 8888,
+    "redis_host": null,
+    "redis_port": null,
+    "redis_password": "",
+    "pub_dir": "public",
+    "src_dir": "src",
+    "inline_images": true,
+    "minify_css": true,
+    "uglify_js": true,
+    "scope_js": false,
+    "debug": true
+}

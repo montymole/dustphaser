@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta chaset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/css/app.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="app">
+			{+bodyContent/}
+		</div>
+		<script type="text/javascript" src="/js/app.min.js"></script>
+	</body>
+
+	{?debug}
+	<script type="text/javascript">
+		var model = {@contextDump/}
+	</script>
+	{/debug}
+
+</html>

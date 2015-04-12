@@ -1,0 +1,12 @@
+2015/04/12 12:13:47 [notice] 7072#0: signal process started
+2015/04/12 12:20:21 [notice] 7097#0: signal process started
+2015/04/12 12:32:55 [error] 7101#0: *22 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /test HTTP/1.1", upstream: "http://127.0.0.1:8888/test", host: "localhost:8080"
+2015/04/12 12:33:16 [error] 7101#0: *22 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /test HTTP/1.1", upstream: "http://127.0.0.1:8888/test", host: "localhost:8080"
+2015/04/12 13:32:30 [error] 7101#0: *141 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /test3 HTTP/1.1", upstream: "http://127.0.0.1:8888/test3", host: "localhost:8080"
+2015/04/12 13:33:19 [notice] 8944#0: signal process started
+2015/04/12 13:45:59 [error] 8948#0: *7 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /test3 HTTP/1.1", upstream: "http://127.0.0.1:8888/test3", host: "localhost:8080"
+2015/04/12 13:49:38 [notice] 10451#0: signal process started
+2015/04/12 15:43:56 [notice] 2309#0: signal process started
+2015/04/12 15:43:56 [error] 2309#0: open() "/projects/jrn/logs/nginx.pid" failed (2: No such file or directory)
+2015/04/12 15:44:05 [notice] 2325#0: signal process started
+2015/04/12 16:06:23 [error] 2329#0: *175 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8888/", host: "localhost:8080"
