@@ -6,3 +6,5 @@ scgi_temp
 uwsgi_temo
 dump.rdb
 logs
+logs/*
+

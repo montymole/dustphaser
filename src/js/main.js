@@ -1,11 +1,45 @@
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-game', {
+        preload: preload,
+        create: create,
+        update: update,
+        render: render
+    }),
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-game', { create: create });
+    cursors;
+
+function preload() {
+
+    game.stage.backgroundColor = '#888';
+
+    game.load.spritesheet('test', '/img/test.png', 64, 64, 3);
+}
+
 
 function create() {
 
-    var text = "- phaser.io. gulp, dust, redis-cache, openresty";
-    var style = { font: "30px Arial", fill: "#ff0044", align: "center" };
+	for (var i = 10; i >= 0; i--) {
+		spriteTest();
+	};
+	
 
-    var t = game.add.text(game.world.centerX-300, 0, text, style);
+    cursors = game.input.keyboard.createCursorKeys();
 
+}
+
+function update() {
+
+}
+
+
+function render() {
+    game.debug.inputInfo(32, 32);
+}
+
+function spriteTest() {
+
+    var mySpr = game.add.sprite(Math.random()*300, Math.random()*300, 'test');
+    mySpr.animations.add('w');
+    mySpr.animations.play('w', 15, true);
+
+    return mySpr;
 }

@@ -1,0 +1,23 @@
+.sprite_test {
+  background: url( '../sprites/test/test_1428853582414.png' ) no-repeat;
+  background-size: 128px 128px;
+}
+
+.sprite_test.1 {
+  width: 64px;
+  height: 64px;
+  background-position: 0 0;
+}
+
+.sprite_test.2 {
+  width: 64px;
+  height: 64px;
+  background-position: -64px 0;
+}
+
+.sprite_test.3 {
+  width: 64px;
+  height: 64px;
+  background-position: 0 -64px;
+}
+

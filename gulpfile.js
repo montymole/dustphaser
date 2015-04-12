@@ -1,4 +1,5 @@
  var site = require('./config.json'),
+     fs = require('fs'),
      path = require('path'),
      gulp = require('gulp'),
      gutil = require('gulp-util'),
@@ -12,10 +13,15 @@
      uglify = require('gulp-uglify'),
      insert = require('gulp-insert'),
 
+     //images
+     sprite = require('gulp-node-spritesheet'),
+
      //path wars
      tmp_dir = path.join(__dirname, 'tmp'),
      pub_dir = path.join(__dirname, site.pub_dir),
      src_dir = path.join(__dirname, site.src_dir);
+
+
 
 
  gulp.task('default', function() {
@@ -28,6 +34,32 @@
      gulp.watch(src_dir + '/scss/*.scss', ['css']);
      gulp.watch(src_dir + '/scss/**/*.scss', ['css']);
  });
+
+ /*--------------------------------------*/
+ /*  Sprite processing    */
+ /*--------------------------------------*/
+
+ function getFolders(dir) {
+     return fs.readdirSync(dir)
+         .filter(function(file) {
+             return fs.statSync(path.join(dir, file)).isDirectory();
+         });
+ }
+
+ gulp.task('sprites', function() {
+     var folders = getFolders(src_dir + '/sprites'),
+         tasks = folders.map(function(folder) {
+             return gulp.src(path.join(src_dir, 'sprites', folder, '/*.png'))
+                 .pipe(sprite({
+                     // Path for compiled sprite styles
+                     outputCss: 'src/scss/_sprite_' + folder + '.scss',
+                     selector: '.sprite_' + folder,
+                     outputImage: folder + '.png'
+                 }))
+                 .pipe(gulp.dest(pub_dir + '/img/'));
+         });
+ });
+
 
  /*--------------------------------------*/
  /*  CSS processing    */
@@ -68,11 +100,11 @@
  });
 
  /*--------------------------------------*/
-/*  Pack lib to one file    */
-/*--------------------------------------*/
-gulp.task('lib', function() {
-    return gulp.src(src_dir + '/js/lib/*.js')
-        .pipe(concat('_lib.js')) //add slash to name so its included as first
-        .pipe(gulp.dest(src_dir + '/js'));
+ /*  Pack lib to one file    */
+ /*--------------------------------------*/
+ gulp.task('lib', function() {
+     return gulp.src(src_dir + '/js/lib/*.js')
+         .pipe(concat('_lib.js')) //add slash to name so its included as first
+         .pipe(gulp.dest(src_dir + '/js'));
 
-});
+ });
